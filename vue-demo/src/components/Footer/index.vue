@@ -1,7 +1,7 @@
 <template>
   <div class="todo-footer">
     <label>
-      <input type="checkbox" v-model="leng"/>
+      <input type="checkbox" :checked="$store.getters.getCount"  @click="$store.dispatch('checkAll',$event)"/>
     </label>
     <span> <span>已完成{{$store.state.todos.filter(item=>item.done).length}}</span> / 全部{{$store.state.todos.length}} </span>
     <button class="btn btn-danger" @click="$store.dispatch('removeAll')">清除已完成任务</button>
@@ -11,18 +11,6 @@
 <script>
 export default {
   name: "Footer",
-  computed:{
-    leng:{
-      get(){
-        return this.$store.state.todos.reduce((prev,item)=>prev+item.done,0)==this.$store.state.todos.length&&this.$store.state.todos.length
-      },
-      set(val){
-        console.log(val)
-        this.$store.dispatch('checkAll',val)
-      }
-    }
-  }
-
 };
 </script>
 

@@ -35,7 +35,9 @@ export default {
     }
   },
   methods:{
+
     edit(todo){
+      //编辑方法 还未写完的方法
       // todo.isEdit=this.isSel
       if (todo.hasOwnProperty('isEdit')){
         todo.isEdit=true

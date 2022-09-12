@@ -29,13 +29,12 @@ export default {
     Main,
     Footer
   },
+  //watch监听
   watch:{
     todos:{
       immediate:true,
       deep:true,
       handler(newV,oldV){
-        console.log(this.$store.state.todos)
-        console.log(newV)
         localStorage.setItem('xin',JSON.stringify(newV))
       }
     }
